@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Blog</title>
+</head>
+
+<body>
+    <div class="position-absolute top-0 start-50 translate-middle-x">
+        <div class="col-sm-12">
+            <h2 style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Edit Blog</h2>
+            <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css'%}">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-success">
+            </form>
+</body>
+
+</html>

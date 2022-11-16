@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compitable" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Search Blog</title>
+    <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css'%}">
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 2px solid;
+    }
+</style>
+
+<body>
+    <h2 style="text-align:center">Blog information</h2>
+    <table style="margin:0px auto;text-align:center">
+        <thead>
+            <tr>
+                <th>Blog ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Edit Blog</th>
+                <th>Remove Blog</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for blog in blogs%}
+            <tr>
+                <td>{{blog.BlogId}}</td>
+                <td>{{blog.Title}}</td>
+                <td>{{blog.Author_Name}}</td>
+                <td>{{blog.Start_Date}}</td>
+                <td>{{blog.End_Date}}</td>
+                <td>
+                    <a href="/update/{{blog.pk}}">Update</a>
+                </td>
+                <td>
+                    <a href="/delete/{{blog.pk}}">Delete</a>
+                </td>
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+    <center>
+        <a href="{% url 'create-blog' %}" class="btn btn-warning">create new blog</a>
+    </center>
+</body>
+
+</html>
